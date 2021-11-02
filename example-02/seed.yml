@@ -1,0 +1,11 @@
+in:
+  type: file
+  path_prefix: './data/sample_'
+
+out:
+  type: command
+  command: "cat - > ./output/data-$INDEX-$SEQID.csv.gz"
+  encoders:
+    - {type: gzip}
+  formatter:
+    type: csv

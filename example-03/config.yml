@@ -1,0 +1,24 @@
+in:
+  type: file
+  path_prefix: ./data/sample_data.csv
+  parser:
+    charset: UTF-8
+    newline: LF
+    type: csv
+    delimiter: ','
+    quote: '"'
+    escape: '"'
+    trim_if_not_quoted: false
+    skip_header_lines: 1
+    allow_extra_columns: false
+    allow_optional_columns: false
+    columns:
+    - {name: id, type: long}
+    - {name: first_name, type: string}
+    - {name: last_name, type: string}
+    - {name: email, type: string}
+    - {name: gender, type: string}
+    - {name: ip_address, type: string}
+    - {name: time, type: timestamp, format: '%Y-%m-%d %H:%M:%S'}
+out: {type: postgresql, host: localhost, user: postgres, password: password, database: embulk_pgdb,
+  table: user_profiles, mode: insert}

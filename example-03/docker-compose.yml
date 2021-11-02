@@ -1,0 +1,21 @@
+version: "3.7"
+        
+services:
+    pgdb:
+        container_name: pgdb
+        image: postgres:9.6-alpine
+        restart: always
+        ports: 
+            - 5432:5432
+        environment:
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: embulk_pgdb
+
+    adminer:
+        container_name: adminer
+        image: adminer:4-standalone
+        restart: always
+        depends_on:
+            - pgdb
+        ports:
+            - 8080:8080

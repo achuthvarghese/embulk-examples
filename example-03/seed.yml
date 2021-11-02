@@ -1,0 +1,12 @@
+in:
+  type: file
+  path_prefix: './data/sample_data.csv'
+
+out:
+  type: postgresql
+  host: localhost
+  user: postgres
+  password: password
+  database: embulk_pgdb
+  table: user_profiles
+  mode: insert

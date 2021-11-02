@@ -1,0 +1,19 @@
+in:
+  type: postgresql
+  host: localhost
+  user: postgres
+  password: password
+  database: embulk_pgdb
+  table: user_profiles
+  select: "*"
+  where: "id <= 100"
+  order_by: "first_name, last_name" 
+
+out:
+  type: mysql
+  host: localhost
+  user: mysql
+  password: password
+  database: embulk_mysqldb
+  table: user_profiles
+  mode: insert
